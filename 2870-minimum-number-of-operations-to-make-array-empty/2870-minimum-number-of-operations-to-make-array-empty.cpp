@@ -2,7 +2,7 @@ class Solution {
 public:
     int minOperations(vector<int>& nums) {
         int ans=0;
-        unordered_map<int,int>mp;
+        map<int,int>mp;
         for(auto it:nums)mp[it]++;
         for(auto it:mp){
             if(it.second==1)return -1;
