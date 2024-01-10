@@ -11,6 +11,10 @@
  */
 class Solution {
 public:
+      Solution() {
+        ios_base::sync_with_stdio(false);
+        cin.tie(nullptr);
+    }
     unordered_map<int,vector<int>>mp;
     void solve(TreeNode* root,int start){
         if(root==NULL)return;
