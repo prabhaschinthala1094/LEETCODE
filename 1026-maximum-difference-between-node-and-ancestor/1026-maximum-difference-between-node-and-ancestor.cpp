@@ -15,8 +15,8 @@ public:
     void solve(TreeNode* node,int maxi,int mini){
         if(node==NULL){
             ans=max(ans,maxi-mini);
-            maxi=0;
-            mini=0;
+            // maxi=0;
+            // mini=0;
             return ;
         }
         maxi=max(maxi,node->val);
