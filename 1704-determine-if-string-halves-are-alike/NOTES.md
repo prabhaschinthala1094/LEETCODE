@@ -1,1 +1,5 @@
-​
+simple !!
+just brute force
+first we have to traverse through the string and find the number of vowels in it
+and we then need to check the first half if it contains exactly half of the total no.of vowels ...
+then true otherwise false....
