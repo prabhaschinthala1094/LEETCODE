@@ -1,12 +1,12 @@
 class Solution {
 public:
     vector<vector<int>> findWinners(vector<vector<int>>& matches) {
-        unordered_set<int>st;
+        set<int>st;
         for(auto it: matches){
             st.insert(it[0]);
             st.insert(it[1]);
         }
-        unordered_map<int,int>mp;
+        map<int,int>mp;
         for(auto it:matches){
             mp[it[1]]++;
         }
