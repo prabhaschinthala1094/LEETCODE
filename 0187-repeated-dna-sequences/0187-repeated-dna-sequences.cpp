@@ -1,32 +1,20 @@
 class Solution {
 public:
-    vector<string> findRepeatedDnaSequences(string s) {
-        set<list<char>>mp;
-        int n=s.size();
-        if(n<=10)return {};
-        set<string>check;
-        vector<string> ans;
-        list<char>temp;
-        int j=0;
-        
-        while(j<=n){
-            while(j<10){
-                temp.push_back(s[j]);
-                j++;
-            }
-           
-            if(mp.find(temp)!=mp.end()){
-                string p;
-                for(auto it:temp)p+=it;
-                check.insert(p);
-             
-            }
-            mp.insert(temp);  
-             temp.pop_front();
-             temp.push_back(s[j]);
-            j++;
+      vector<string> findRepeatedDnaSequences(string s) {
+        map<string,int> arr;
+        if(s.size() < 10)
+            return {};
+        for(int i = 0; i < s.size()-9; ++i){
+            string str = s.substr(i,10);
+            arr[str]++;
         }
-        for(auto it:check)ans.push_back(it);
+        
+        vector<string> ans;
+        for(auto x: arr){
+            if(x.second > 1)
+            ans.push_back(x.first);
+        }
+        
         return ans;
     }
 };
