@@ -24,16 +24,21 @@ public:
         vector<int>vis(n,0);
         vis[id]=1;
         vector<int>frnds;
+        
         while(!q.empty()){ 
-            auto [currlvl,currId] = q.front();
-            q.pop();
-            if(currlvl == level){
-                frnds.push_back(currId);
-            }
-            for(auto it:mp[currId]){
-                if(!vis[it]){
-                    q.push({currlvl+1,it});
-                    vis[it]=1;
+            int sz=q.size();
+            for(int i=0;i<sz;i++){
+                auto [currlvl,currId] = q.front();
+                q.pop();
+                if(currlvl == level){
+                    frnds.push_back(currId);
+                    break;
+                }
+                for(auto it:mp[currId]){
+                    if(!vis[it]){
+                        q.push({currlvl+1,it});
+                        vis[it]=1;
+                    }
                 }
             }
         }
