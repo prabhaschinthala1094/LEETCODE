@@ -1,17 +1,12 @@
 class Solution {
 public:
-using ll = long long;
     int reverse(int x) {
-        ll sign=1;
-        if(x<0)sign=-1;
-        x=abs(x);
-        ll ans=0;
+        int y=0;
         while(x) {
-            ll r = (ll)x%10;
-            ans= ans*10 + r;
+            if(y>INT_MAX/10 || y<INT_MIN/10)return 0;
+            y=y*10 + x%10;
             x/=10;
         }
-        if(ans>INT_MAX)return 0;
-        return (int)(sign*ans);
+        return y;
     }
 };
