@@ -21,13 +21,13 @@ public:
     }
     int minDays(vector<int>& bloomDay, int m, int k) {
         int n = bloomDay.size();
-        long long tot = m;
-        tot = tot*k;
-        if((long long)n<tot)return -1;
+        // long long tot = m;
+        // tot = tot*k;
+        // if((long long)n<tot)return -1;
         int s=*min_element(bloomDay.begin(),bloomDay.end());
         int e=*max_element(bloomDay.begin(),bloomDay.end());
         // cout<<s<<" "<<e<<endl;
-        int ans = e;
+        int ans = -1;
         while(s<=e) {
             int mid = s+(e-s)/2;
             if(isPossible(mid,bloomDay,m,k)){
