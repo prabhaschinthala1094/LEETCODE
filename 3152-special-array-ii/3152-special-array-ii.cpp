@@ -4,7 +4,7 @@ public:
         int n = nums.size();
         vector<int>vix(n,0);
         for(int i=1;i<n;i++){
-            if(nums[i]%2 == nums[i-1]%2){
+            if((nums[i] & 1) == (nums[i-1] & 1)){
                 
                 vix[i] = vix[i-1]+1;
             }
