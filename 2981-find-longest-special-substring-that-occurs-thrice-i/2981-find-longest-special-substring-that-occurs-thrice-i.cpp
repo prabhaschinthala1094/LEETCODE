@@ -1,32 +1,29 @@
 class Solution {
 public:
-    bool valid (string &p){
-        unordered_set<char>st;
-        for(auto i:p){
-            st.insert(i);
+ 
+int maximumLength(string s) {
+    int longest = -1;
+    unordered_map<string, int> counts;
+
+    for (int i = 0; i < s.length(); ++i) {
+        for (int j = i ; j < s.length(); ++j) {
+           string substr = s.substr(i, j - i + 1);
+            bool isSpecial = true;
+            for (int k = 1; k < substr.size(); ++k) {
+                if (substr[k] != substr[0]) {
+                    isSpecial = false;
+                    break;
+                }
+            }
+            if (isSpecial) {
+                counts[substr]++;
+                if (counts[substr] >= 3) {
+                    longest = max(longest, (int)substr.size());
+                }
+            }
         }
-        return (st.size() == 1);
     }
-    int maximumLength(string s) {
-        int n = s.size();
-        unordered_map<string,int>mp;
-        for(int i=0;i<n;i++){
-            string a ;
-            a+=s[i];
-            mp[a]++;
-            for(int j=i+1;j<n;j++){
-                a+=s[j];
-                mp[a]++;
-            }
-        }
-        int len = 0;
-        for(auto i:mp){
-            string p = i.first;
-            if(valid(p) && i.second>=3){
-                len = max(len,(int)i.first.size());
-            }
-        }
-        
-        return (len==0)?-1:len;
-    } 
+
+    return longest;
+}
 };
